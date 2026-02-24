@@ -1,0 +1,175 @@
+/* THE BAse & Layout */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px; /* forces mobile view */
+    background-color: #ffffff;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 60px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    /* border: 1px solid red;  <-- uncomment for debugging layout */
+}
+
+/*THe Theme Colors */
+.bg-dark-grey { background-color: #3e3e3e; }
+.text-gold { color: #d4a73b; }
+.bg-gold { background-color: #d4a73b; }
+.bg-slate { background-color: #8b9cb0; }
+.bg-pink { background-color: #f4ccce; }
+.bg-green { background-color: #d9e6b3; }
+.bg-yellow { background-color: #f4e0aa; }
+
+/* Typography Help */
+.fw-semibold { font-weight: 600; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.85rem; }
+
+
+.welcome-card {
+    border: 1px solid #d4a73b;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+.welcome-card:hover {
+    box-shadow: 0 4px 15px rgba(212, 167, 59, 0.15); 
+}
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #d4a73b;
+}
+.avatar-sm {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Stat Cards */
+.stat-card {
+    border-radius: 8px;
+    padding: 10px;
+    color: #000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* Memberships Accordion */
+.membership-wrapper {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.membership-header {
+    padding: 12px 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: filter 0.2s ease;
+}
+.membership-header:hover {
+    filter: brightness(1.05); 
+}
+.chevron-icon {
+    transition: transform 0.3s ease;
+}
+.chevron-icon.rotate {
+    transform: rotate(180deg);
+}
+
+.membership-body {
+    background-color: #3e3e3e;
+    color: white;
+    padding: 15px;
+    font-size: 0.85rem;
+    display: none; /* hidden by default per reqs */
+}
+.membership-body.active {
+    display: block;
+    animation: slideDown 0.3s ease-out forwards; 
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer & Buttons */
+.footer-link-pill {
+    display: block;
+    background-color: #d4a73b;
+    color: white !important;
+    text-align: center;
+    border-radius: 20px;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 20px 15px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.footer-link-pill:hover {
+    transform: scale(1.02);
+    background-color: #c2952a;
+}
+
+.bottom-footer {
+    background-color: #d4a73b;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 0.65rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Floating WhatsApp Icon */
+.whatsapp-float {
+    position: absolute;
+    right: 15px;
+    bottom: 25px;
+    width: 40px;
+    height: 40px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(37, 211, 102, 0.4);
+    z-index: 100;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
