@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('wallet_id')->constrained()->cascadeOnDelete(); // Links to the wallets table
+            $table->enum('type', ['income', 'expense']); // Restricts type to only these two options
+            $table->decimal('amount', 12, 2); // Handles the money value safely
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
